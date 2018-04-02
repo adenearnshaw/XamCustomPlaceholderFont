@@ -107,6 +107,7 @@
     <BundleResource Include="Resources\Icon-Small%402x.png" />
     <BundleResource Include="Resources\Icon-Small%403x.png" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <BundleResource Include="Resources\Fonts\ComicSaaaans.ttf" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -120,9 +121,12 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\XamCustomPlaceholderFont\XamCustomPlaceholderFont.csproj">
-      <Project>{ABA82BCD-4E70-45FB-9594-9F9D0909CD52}</Project>
+      <Project>{5B892B40-78B1-4F0B-9BA2-EFC0BC55FCAC}</Project>
       <Name>XamCustomPlaceholderFont</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Resources\Fonts\" />
+  </ItemGroup>
 </Project>

@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\icon.png" />
+    <AndroidResource Include="Resources\font\ComicSaaaans.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
@@ -76,12 +77,13 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XamCustomPlaceholderFont\XamCustomPlaceholderFont.csproj">
-      <Project>{ABA82BCD-4E70-45FB-9594-9F9D0909CD52}</Project>
+      <Project>{5B892B40-78B1-4F0B-9BA2-EFC0BC55FCAC}</Project>
       <Name>XamCustomPlaceholderFont</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\" />
+    <Folder Include="Resources\font\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
