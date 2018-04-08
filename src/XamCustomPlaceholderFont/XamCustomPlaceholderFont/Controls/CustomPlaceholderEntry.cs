@@ -1,16 +1,17 @@
 ﻿using Xamarin.Forms;
+using Xamarin.Forms.Internals;
 
 namespace XamCustomPlaceholderFont.Controls
 {
     public class CustomPlaceholderEntry : Entry
     {
-        public static readonly BindableProperty PlaceholderFontProperty
-            = BindableProperty.Create(nameof(PlaceholderFont), typeof(Font), typeof(CustomPlaceholderEntry), default(Font));
+        public static readonly BindableProperty PlaceholderFontFamilyProperty
+        = BindableProperty.Create(nameof(PlaceholderFontFamily), typeof(string), typeof(CustomPlaceholderEntry), default(string));
 
-        public Font PlaceholderFont
+        public string PlaceholderFontFamily
         {
-            get { return (Font)GetValue(PlaceholderFontProperty); }
-            set { SetValue(PlaceholderFontProperty, value); }
+            get { return (string)GetValue(PlaceholderFontFamilyProperty); }
+            set { SetValue(PlaceholderFontFamilyProperty, value); }
         }
     }
 }

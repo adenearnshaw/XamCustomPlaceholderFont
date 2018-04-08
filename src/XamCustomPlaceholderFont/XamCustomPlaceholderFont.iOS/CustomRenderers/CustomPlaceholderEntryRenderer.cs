@@ -1,5 +1,6 @@
 ﻿using Foundation;
 using System.ComponentModel;
+using System.Linq;
 using UIKit;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.iOS;
@@ -23,7 +24,7 @@ namespace XamCustomPlaceholderFont.iOS.CustomRenderers
         {
             base.OnElementPropertyChanged(sender, e);
 
-            if (e.PropertyName == CustomPlaceholderEntry.PlaceholderFontProperty.PropertyName)
+            if (e.PropertyName == CustomPlaceholderEntry.PlaceholderFontFamilyProperty.PropertyName)
                 UpdatePlaceholderFont();
         }
 
@@ -36,10 +37,30 @@ namespace XamCustomPlaceholderFont.iOS.CustomRenderers
                     Alignment = UITextAlignment.Left
                 };
 
-                var placeholderFont = CustomElement.PlaceholderFont.ToUIFont();
+                var placeholderFont = FindFont(CustomElement.PlaceholderFontFamily, (float)CustomElement.FontSize);
 
                 Control.AttributedPlaceholder = new NSAttributedString(CustomElement.Placeholder, placeholderFont, paragraphStyle: paragraphStyle);
             }
+        }
+
+        private UIFont FindFont(string fontFamily, float fontSize)
+        {
+            if (fontFamily != null)
+            {
+                try
+                {
+                    if (UIFont.FamilyNames.Contains(fontFamily))
+                    {
+                        var descriptor = new UIFontDescriptor().CreateWithFamily(fontFamily);
+                        return UIFont.FromDescriptor(descriptor, fontSize);
+                    }
+
+                    return UIFont.FromName(fontFamily, fontSize);
+                }
+                catch { }
+            }
+
+            return UIFont.SystemFontOfSize(fontSize);
         }
     }
 }
